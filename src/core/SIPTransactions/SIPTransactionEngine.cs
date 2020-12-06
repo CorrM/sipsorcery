@@ -560,10 +560,10 @@ namespace SIPSorcery.SIP
 
             // If there is no tx request then it must be a PRack request we're being asked to send reliably.
             SIPRequest req = transaction.TransactionRequest ?? transaction.PRackRequest;
-
+            
             if (transaction.Retransmits == 1 || req.URI.Protocol == SIPProtocolsEnum.udp)
             {
-            	 if (transaction.OutboundProxy != null)
+                if (transaction.OutboundProxy != null)
             	{
             		result = m_sipTransport.SendRequestAsync(transaction.OutboundProxy, req);
             	}
